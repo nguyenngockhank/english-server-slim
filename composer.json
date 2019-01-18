@@ -1,0 +1,12 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "illuminate/database": "~5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/models"
+        },
+        "files": ["src/helpers/app_helper.php"]
+    }
+}
