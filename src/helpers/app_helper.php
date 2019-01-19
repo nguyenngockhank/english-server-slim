@@ -1,6 +1,9 @@
 <?php
-function siteUrl() {
-    return sprintf("%s://%s%s", isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-        $_SERVER['SERVER_NAME'], $_SERVER['REQUEST_URI']
-    );
+function siteUrl($path = '') {
+    $currentPath = $_SERVER['PHP_SELF']; 
+    $pathInfo = pathinfo($currentPath); 
+    $hostName = $_SERVER['HTTP_HOST']; // localhost or stcg.com
+    $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https://'?'https://':'http://';
+    return $protocol.$hostName.$pathInfo['dirname']."/" . $path;
 }
+

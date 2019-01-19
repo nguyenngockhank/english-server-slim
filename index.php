@@ -19,6 +19,7 @@ $container['db'] = function ($container) {
 
 /// define routes  
 $app->get('/', function ($request) {
+    $isDev = $request->getQueryParam('dev') !== NULL;
     include './src/views/main.php';
 });
 
